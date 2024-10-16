@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Modular Menu Example</title>
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/mediumish.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Contenedor donde se cargará el menú -->
+  <div id="menu-container"></div>
+
+  <h1>Página de ejemplo</h1>
+  <p>Contenido de la página principal.</p>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const menuContainer = document.getElementById('menu-container');
+      
+      // Fetch para cargar el archivo menu.html
+      fetch('assets/page/menu.html')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Error al cargar el menú: ' + response.statusText);
+          }
+          return response.text();
+        })
+        .then(data => {
+          menuContainer.innerHTML = data;
+        })
+        .catch(error => {
+          console.error(error);
+          menuContainer.innerHTML = "<p>Error al cargar el menú.</p>";
+        });
+    });
+    </script>
+
+</body>
+</html>

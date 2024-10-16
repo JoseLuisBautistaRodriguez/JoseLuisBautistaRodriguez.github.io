@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     const footerContainer = document.getElementById('footer-container');
-    
+ 
     // Fetch para cargar el archivo footer.html
     fetch('assets/page/footer.html')
       .then(response => {
@@ -15,6 +15,6 @@ document.addEventListener("DOMContentLoaded", function() {
       .catch(error => {
         console.error(error);
         footerContainer.innerHTML = "<p>Error al cargar el footer.</p>";
-      });
+      }); 
   });
   

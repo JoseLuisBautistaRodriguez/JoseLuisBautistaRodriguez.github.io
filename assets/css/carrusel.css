@@ -9,25 +9,64 @@
 .carrusel {
     display: flex;
     overflow: hidden;
-    width: 100%;
-    height: 400px; /* Ajusta este valor para aumentar la altura del carrusel */
+    width: 90%;
+    height: 20%; /* Ajusta para acomodar el contenido */
     justify-content: space-between;
     scroll-behavior: smooth;
 }
 
+.carrusel .post:hover {
+   transform: none; /* Evita que el post crezca al hacer hover */
+}
+
+/* Establece el tamaño fijo para las imágenes en el carrusel */
 .carrusel img {
-    width: 100%;
-    height: 100%; /* Las imágenes ocuparán todo el alto del carrusel */
+    width: 50%; /* Mantén el ancho del contenedor */
+    height: auto;
     margin: 0 5px;
     transition: transform 0.3s ease;
     cursor: pointer;
 }
 
-
-.carrusel img:hover {
-    transform: scale(1.8); /* Aumenta el tamaño cuando pasas el cursor sobre la imagen */
+/* Establece el mismo tamaño para todas las tarjetas de publicaciones */
+.post-card {
+    width: 350px; /* Ancho fijo para todas las tarjetas */
+    height: auto; /* Alto fijo para que coincida con el carrusel */
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 5px;
 }
 
+/* Asegura que las imágenes dentro de las publicaciones tengan el mismo tamaño */
+.post-card img {
+    width: 330px;
+    height: auto; /* Ajusta la altura para que todas las imágenes sean consistentes */
+    object-fit: cover; /* Recorta la imagen para que encaje sin deformarse */
+}
+
+/* Establece el contenido de las publicaciones */
+.post-card .card-block {
+    padding: 10px;
+    flex-grow: 1;
+    /*display: inline; /*flex */
+    display: inline-block;
+    width: 350px;
+    height: auto;
+    flex-direction: column;
+    justify-content: center;
+    /*justify-content: space-between;*/
+}
+
+/* Zoom solo en las imágenes del carrusel (no en los posts) */
+.carrusel img:hover {
+    transform: scale(1.8);
+}
+
+/* Botones de navegación del carrusel */
 .prev-btn, .next-btn {
     background-color: rgba(0, 0, 0, 0.5);
     color: white;

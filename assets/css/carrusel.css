@@ -1,0 +1,49 @@
+.carrusel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+.carrusel {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    height: 400px; /* Ajusta este valor para aumentar la altura del carrusel */
+    justify-content: space-between;
+    scroll-behavior: smooth;
+}
+
+.carrusel img {
+    width: 100%;
+    height: 100%; /* Las imágenes ocuparán todo el alto del carrusel */
+    margin: 0 5px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+
+.carrusel img:hover {
+    transform: scale(1.8); /* Aumenta el tamaño cuando pasas el cursor sobre la imagen */
+}
+
+.prev-btn, .next-btn {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.prev-btn {
+    left: 0;
+}
+
+.next-btn {
+    right: 0;
+}

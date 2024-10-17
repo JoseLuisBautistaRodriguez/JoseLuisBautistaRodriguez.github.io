@@ -447,3 +447,39 @@ ul.tags li a:hover {
 	border-radius:50%;
 	font-size:12px;
 }
+.section-container {
+    margin: 30px auto;
+}
+
+.carousel-inner {
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel .item {
+    transition: transform 0.6s ease;
+}
+
+.carousel .img-responsive {
+    width: 100%;
+    height: auto;
+    max-width: 600px;
+    max-height: 600px;
+    object-fit: cover;
+}
+
+.carousel-control {
+    background: none;
+    color: #333;
+    font-size: 30px;
+    text-shadow: none;
+}
+
+.carousel-control:hover, .carousel-control:focus {
+    color: #000;
+}
+
+.black-image-project-hover:hover img {
+    opacity: 0.8;
+}
+

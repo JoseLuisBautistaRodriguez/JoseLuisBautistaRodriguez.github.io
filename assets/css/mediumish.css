@@ -17,7 +17,7 @@ body {
 	padding:1rem 0rem;
 }
 a {
-	color:#00ab6b;
+	color:#5393fb;
 }
 a,a:hover {
 	transition:all 0.2s;
@@ -48,6 +48,11 @@ section {
 		-moz-column-count:2;
 		column-count:2;
 	}
+	.card-columns_02.listfeaturedtag {
+		-webkit-column-count:3;
+		-moz-column-count:3;
+		column-count:3;
+	}
 }
 @media (min-width:992px) {
 	.navbar-toggleable-md .navbar-nav .nav-link {
@@ -57,6 +62,9 @@ section {
 }
 .card-columns .card {
 	margin-bottom:20px;
+}
+.card-columns_02 .card {
+	margin-bottom:30px;
 }
 .listfeaturedtag .wrapthumbnail {
 	height:258px;
@@ -447,3 +455,39 @@ ul.tags li a:hover {
 	border-radius:50%;
 	font-size:12px;
 }
+.section-container {
+    margin: 30px auto;
+}
+
+.carousel-inner {
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel .item {
+    transition: transform 0.6s ease;
+}
+
+.carousel .img-responsive {
+    width: 100%;
+    height: auto;
+    max-width: 600px;
+    max-height: 600px;
+    object-fit: cover;
+}
+
+.carousel-control {
+    background: none;
+    color: #333;
+    font-size: 30px;
+    text-shadow: none;
+}
+
+.carousel-control:hover, .carousel-control:focus {
+    color: #000;
+}
+
+.black-image-project-hover:hover img {
+    opacity: 0.8;
+}
+

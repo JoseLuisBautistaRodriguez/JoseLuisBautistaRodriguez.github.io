@@ -1,0 +1,88 @@
+.carrusel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+.carrusel {
+    display: flex;
+    overflow: hidden;
+    width: 90%;
+    height: 20%; /* Ajusta para acomodar el contenido */
+    justify-content: space-between;
+    scroll-behavior: smooth;
+}
+
+.carrusel .post:hover {
+   transform: none; /* Evita que el post crezca al hacer hover */
+}
+
+/* Establece el tamaño fijo para las imágenes en el carrusel */
+.carrusel img {
+    width: 50%; /* Mantén el ancho del contenedor */
+    height: auto;
+    margin: 0 5px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+/* Establece el mismo tamaño para todas las tarjetas de publicaciones */
+.post-card {
+    width: 350px; /* Ancho fijo para todas las tarjetas */
+    height: auto; /* Alto fijo para que coincida con el carrusel */
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 5px;
+}
+
+/* Asegura que las imágenes dentro de las publicaciones tengan el mismo tamaño */
+.post-card img {
+    width: 330px;
+    height: auto; /* Ajusta la altura para que todas las imágenes sean consistentes */
+    object-fit: cover; /* Recorta la imagen para que encaje sin deformarse */
+}
+
+/* Establece el contenido de las publicaciones */
+.post-card .card-block {
+    padding: 10px;
+    flex-grow: 1;
+    /*display: inline; /*flex */
+    display: inline-block;
+    width: 350px;
+    height: auto;
+    flex-direction: column;
+    justify-content: center;
+    /*justify-content: space-between;*/
+}
+
+/* Zoom solo en las imágenes del carrusel (no en los posts) */
+.carrusel img:hover {
+    transform: scale(1.8);
+}
+
+/* Botones de navegación del carrusel */
+.prev-btn, .next-btn {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.prev-btn {
+    left: 0;
+}
+
+.next-btn {
+    right: 0;
+}

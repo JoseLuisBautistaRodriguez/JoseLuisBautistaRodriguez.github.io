@@ -19,6 +19,7 @@
    transform: none; /* Evita que el post crezca al hacer hover */
 }
 
+
 /* Establece el tamaño fijo para las imágenes en el carrusel */
 .carrusel img {
     width: 50%; /* Mantén el ancho del contenedor */
@@ -61,10 +62,15 @@
     /*justify-content: space-between;*/
 }
 
-/* Zoom solo en las imágenes del carrusel (no en los posts) */
+/* Zoom solo en las imágenes del carrusel (no en los posts) *
 .carrusel img:hover {
     transform: scale(1.8);
 }
+/* Zoom solo en las imágenes que están directamente en el carrusel */
+.carrusel > img:hover {
+    transform: scale(1.8);
+}
+
 
 /* Botones de navegación del carrusel */
 .prev-btn, .next-btn {

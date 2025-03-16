@@ -1,7 +1,11 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const sharecontainer = document.getElementById('share-container');
- 
-    // Fetch para cargar el archivo footer.html
+  const sharecontainer = document.getElementById('share-container');
+  console.log("Contenedor sharecontainer:", sharecontainer);
+
+  if (sharecontainer) {
+    const postUrl = sharecontainer.getAttribute('data-post-url');
+    console.log("postUrl:", postUrl);
+
     fetch('../../assets/page/share.html')
       .then(response => {
         if (!response.ok) {
@@ -10,11 +14,15 @@ document.addEventListener("DOMContentLoaded", function() {
         return response.text();
       })
       .then(data => {
-        sharecontainer.innerHTML = data;
+        // Reemplazamos el placeholder
+        const dataConUrl = data.replace('{POST_URL}', encodeURIComponent(postUrl));
+        sharecontainer.innerHTML = dataConUrl;
       })
       .catch(error => {
         console.error(error);
         sharecontainer.innerHTML = "<p>Error al cargar SH.</p>";
       }); 
-  });
-  
+  } else {
+    console.error("No se encontró el div con id='share-container'");
+  }
+});

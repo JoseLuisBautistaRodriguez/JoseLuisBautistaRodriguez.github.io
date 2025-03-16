@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
       })
       .then(data => {
         // Reemplazamos el placeholder
-        const dataConUrl = data.replace('{POST_URL}', encodeURIComponent(postUrl));
+        const dataConUrl = data.replace(/{POST_URL}/g, encodeURIComponent(postUrl));
         sharecontainer.innerHTML = dataConUrl;
       })
       .catch(error => {

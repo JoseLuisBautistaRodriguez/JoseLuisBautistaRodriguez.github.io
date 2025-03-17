@@ -1,197 +1,306 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
+<html lang="es">
+  <head>
+    <link rel="icon" href="../../assets/img/baur.ico">
+    <title>.venv en VS Code</title>
+
+    <!-- Meta Data for SEO and Social Sharing -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Consideraciones al trabajar en entornos virtuales con WSL en VS Code 🐧. Aprende sobre la integración de proyectos y las ventajas de utilizar entornos virtuales.">
+    <meta name="author" content="José Luis Bautista Rodríguez">
+    <meta name="keywords" content="WSL, Visual Studio Code, entornos virtuales, Django, Python, venv">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content=".venv en VS Code" />
+    <meta property="og:description" content="Consideraciones al trabajar en entornos virtuales con WSL en VS Code 🐧. Aprende sobre la integración de proyectos y las ventajas de utilizar entornos virtuales." />
+    <meta property="og:image" content="https://jlbaur.lat/assets/img/baur.ico" />
+    <meta property="og:url" content="https://jlbaur.lat/content/posts/Visual_Studio_Entornos_Virtuales_con_WSL.html" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="jlbar.lat" />
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Fonts -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../../assets/css/mediumish.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/copy-code.css">
+  </head>
+  <body>
+    <!-- Begin Nav ================================================== -->
+    <div id="menu-container_02"></div>
+    <!-- End Nav ================================================== -->
+
+    <!-- Begin Article ================================================== -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2 col-xs-12">
+          <!-- In data-post-url you put the URL of the current post -->
+          <div id="share-container" data-post-url="https://jlbaur.lat/content/posts/Visual_Studio_Entornos_Virtuales_con_WSL.html"></div>
+        </div>
+
+        <!-- Begin Post -->
+        <div class="col-md-8 col-md-offset-2 col-xs-12">
+          <div class="mainheading">
+            <header>
+              <h1 class="posttitle">Integración de Proyectos en Django y Ventajas de Trabajar con WSL</h1>
+            </header>
+          </div>
+
+          <!-- Begin Post Content -->
+          <article class="article-post">
+            <p>
+              Desde hace medio año he estado integrando cada vez más proyectos en
+              <a href="https://www.djangoproject.com/" target="_blank" rel="noopener noreferrer">Django</a>.
+              Lo que al principio fue una simple curiosidad se ha convertido en una herramienta muy práctica para segmentar la lógica de las funciones y monitorizar el flujo de datos.
+              Además, el uso de arquitecturas <a href="https://restfulapi.net/" target="_blank" rel="noopener noreferrer">REST</a> resulta muy útil para el monitoreo del flujo de información.
+              Sin embargo, nada es perfecto, y es aquí donde entra en juego la correcta conexión y manejo de la información.
+            </p>
+
+            <!-- Improved Figure Element -->
+            <figure class="mw-halign-center" style="text-align: center;" typeof="mw:File/Thumb">
+              <a href="https://i.postimg.cc/pLkXx9q1/Diagrama-01-WSL.jpg" class="mw-file-description" target="_blank" rel="noopener noreferrer">
+                <img src="https://i.postimg.cc/pLkXx9q1/Diagrama-01-WSL.jpg" alt="Diagrama comparativo de entornos virtuales en WSL versus entorno local" decoding="async" width="100%" height="auto" data-file-width="800" data-file-height="600">
+              </a>
+              <figcaption style="text-align: center;">Diagrama comparativo: Uso de un venv en WSL versus fuera de él.</figcaption>
+            </figure>
+
+            <h2>Uso de SQLite en Django</h2>
+            <p>
+              Django incluye, por defecto, la base de datos <strong>SQLite</strong> (db.sqlite3), la cual es muy adecuada para proyectos pequeños, ya que cuenta con un gestor integrado sencillo de configurar y manejar.
+              Sin embargo, cuando el proyecto crece, <strong>SQLite</strong> deja de ser una opción recomendada, ya que:
+            </p>
+            <ul>
+              <li><strong>Concurrencia limitada:</strong> No es eficiente en operaciones simultáneas.</li>
+              <li><strong>Escalabilidad:</strong> No está diseñada para cargas intensivas de trabajo.</li>
+              <li>
+                <strong>Características avanzadas:</strong> Carece de funcionalidades de consulta complejas que ofrecen otros sistemas de gestión de bases de datos, como
+                <a href="https://www.postgresql.org/" target="_blank" rel="noopener noreferrer">PostgreSQL</a> o
+                <a href="https://www.mysql.com/" target="_blank" rel="noopener noreferrer">MySQL</a>.
+              </li>
+            </ul>
+
+            <h2>Entornos Virtuales en Django</h2>
+            <p>
+              Aquí es donde entra en juego el actor principal de esta charla: los <strong>entornos virtuales de trabajo</strong>.
+              Django utiliza un entorno virtual porque se basa en
+              <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">Python</a>, lo que permite gestionar de forma aislada las dependencias y configuraciones de cada proyecto.
+              Es recomendable generar un entorno virtual específico para cada proyecto.
+            </p>
+            <p>
+              Las formas de crearlo varían según el sistema operativo (Linux, Windows o macOS) y el IDE que se emplee; por practicidad, yo he optado por
+              <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">Visual Studio Code</a>.
+            </p>
+            <p>
+              Dentro de mi flujo de trabajo, utilizo principalmente
+              <a href="https://docs.microsoft.com/en-us/windows/wsl/" target="_blank" rel="noopener noreferrer">WSL</a>
+              junto con una terminal <strong>zsh</strong> y otra terminal <strong>bash</strong> para Git, que se han convertido en mis compañeros de trabajo imprescindibles.
+              Sin embargo, surge un conflicto: cuando el proyecto se encuentra directamente en la sesión remota de WSL, la comunicación con una base de datos ubicada en Windows requiere pasos adicionales.
+            </p>
+
+            <h2>Creación y Activación de un Entorno Virtual en VS Code</h2>
+            <p>
+              Una vez que tienes WSL y una distribución de Linux instalada, sigue estos pasos para crear y activar un entorno virtual en tu carpeta de proyecto:
+            </p>
+            <ol>
+              <li>
+                <strong>Crear el entorno virtual:</strong>
+                <br />
+                Navega a la carpeta de tu proyecto y ejecuta:
+                <pre><code>python3 -m venv nombre_de_tu_venv</code></pre>
+              </li>
+              <li>
+                <strong>Activar el entorno virtual:</strong>
+                <br />
+                Ejecuta el siguiente comando:
+                <pre><code>source nombre_de_tu_venv/bin/activate</code></pre>
+              </li>
+              <li>
+                <strong>Verificar la activación:</strong>
+                <br />
+                Usa:
+                <pre><code>which python</code></pre>
+                o
+                <pre><code>python --version</code></pre>
+                para confirmar que la ruta corresponde a la de tu entorno virtual.
+              </li>
+              <li>
+                <strong>Seleccionar el intérprete en VS Code:</strong>
+                <br />
+                Presiona <code>Ctrl+Shift+P</code> (o <code>Cmd+Shift+P</code> en macOS), elige <em>Python: Select Interpreter</em> y selecciona el intérprete ubicado en <code>nombre_de_tu_venv/bin/python</code>.
+              </li>
+            </ol>
+
+            <h2>Diferencias entre Trabajar en WSL o en el Entorno Local</h2>
+            <p>
+              Existe una gran diferencia entre cargar un proyecto dentro de WSL y hacerlo en modo local. Si no se trabaja en WSL, la activación del entorno virtual y la instalación de dependencias se vuelven procesos repetitivos en cada sesión, y, dependiendo de los permisos de administrador, la instalación de requerimientos puede complicarse.
+            </p>
+            <p>
+              Trabajar directamente en WSL ofrece varias ventajas:
+            </p>
+            <ul>
+              <li>
+                Es una forma de trabajo más segura, gracias a la segmentación entre el entorno y el sistema operativo.
+              </li>
+              <li>
+                En proyectos más complejos, trabajar en WSL ahorra tiempo y, al combinarlo con
+                <a href="https://www.docker.com/" target="_blank" rel="noopener noreferrer">Docker</a>,
+                la migración del proyecto se convierte en una gran ventaja.
+              </li>
+            </ul>
+
+            <h3>¿Cómo diferenciar si estás trabajando en WSL o no?</h3>
+            <p>
+              En Visual Studio Code aparece la indicación <code>[WSL: Ubuntu]</code> cuando abres una carpeta o proyecto directamente en la sesión remota de WSL mediante la extensión <strong>Remote - WSL</strong>.
+              Esto significa que:
+            </p>
+            <ol>
+              <li>
+                <strong>Cómo abres el proyecto:</strong>
+                <ul>
+                  <li>
+                    <em>Proyecto con <code>[WSL: Ubuntu]</code>:</em> Se abrió usando “Open Folder in WSL” o “Reopen in WSL”. Internamente, VS Code lanza un servidor dentro de WSL y la exploración de archivos, terminal y extensiones funcionan "desde Linux".
+                  </li>
+                  <li>
+                    <em>Proyecto sin etiqueta:</em> Se abrió de forma local (por ejemplo, desde <code>C:\</code> o <code>D:\</code>), aunque se utilice una terminal WSL para ejecutar comandos; en este caso, VS Code sigue corriendo en Windows.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Ubicación del proyecto:</strong>
+                <ul>
+                  <li>
+                    Si el proyecto está en la ruta <code>\\wsl$</code> o <code>/home/usuario/...</code> (sistema de archivos de WSL), VS Code normalmente te preguntará si deseas abrirlo en modo WSL.
+                  </li>
+                  <li>
+                    Si el proyecto está en una ruta de Windows, se considerará parte del sistema de archivos local.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Extensión Remote - WSL:</strong>
+                <ul>
+                  <li>
+                    Esta extensión hace que VS Code ejecute sus procesos internos y extensiones dentro de la distribución de Linux (Ubuntu, Debian, etc.), lo que se refleja en la etiqueta <code>[WSL: Ubuntu]</code>.
+                  </li>
+                  <li>
+                    Si no usas esta extensión, VS Code no mostrará dicha etiqueta, incluso si inicias una terminal WSL.
+                  </li>
+                </ul>
+              </li>
+            </ol>
+
+            <h2>Conexión de Bases de Datos con WSL</h2>
+            <p>
+              Un problema común surge al conectar una base de datos ubicada en Windows o macOS con un proyecto que se ejecuta en WSL. Al usar el puerto 3306 (por defecto en muchos gestores de bases de datos), se pueden generar conflictos al trabajar con múltiples "localhost".
+            </p>
+            <p>
+              Para solucionar este inconveniente, cambié la dirección de mi localhost en el gestor de la base de datos y modifiqué el puerto de salida. Esta configuración se realizó en el archivo <code>services.py</code> de mi proyecto.
+              Puedes consultar la <a href="https://dev.mysql.com/doc/" target="_blank" rel="noopener noreferrer">documentación de MySQL</a> o la <a href="https://www.postgresql.org/docs/" target="_blank" rel="noopener noreferrer">documentación de PostgreSQL</a> para más detalles sobre la configuración de puertos y conexiones.
+            </p>
+            <p>
+              Además, un recurso que me fue de gran ayuda fue un script en Python para validar, dentro de mi entorno virtual en WSL, si la conexión con la base de datos era adecuada. Espero que este ejemplo te ahorre tiempo si te encuentras con un problema similar.
+            </p>
+
+            <!-- Bloque de código -->
+            <pre><code># By JLBaur | <a href="https://github.com/JoseLuisBautistaRodriguez/sql_connection" target="_blank" rel="noopener noreferrer">Ver documentación completa en GitHub.</a>
+import MySQLdb
+
+	try:
+		# Establish a connection to the MySQL server.
+		# - 'host': The IP address of the server you discovered (e.g., the host running XAMPP).
+		# - 'port': The TCP port for MySQL. If XAMPP is configured on port 3300, use 3300.
+		# - 'user': The MySQL username with privileges to connect and query.
+		# - 'passwd': The password for the specified user.
+		db = MySQLdb.connect(
+			host="172.19.0.0",     # IP you found, or localhost
+			port=3306,             # For instance, "n" if XAMPP uses that port
+			user="",
+			passwd=""
+		)
 	
-	<link rel="icon" href="../../assets/img/baur.ico">
-	<title>.venv en VS Code</title>
-
-	<!--Etiquetas para Post con terceros-------------------------------------------------------------------------------------->
-
-	<meta charset="utf-8">
-
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="Consideraciones al trabajar en entornos virtuales con WSL en VS Code 🐧">
-	<meta name="author" content="José Luis Bautista Rodríguez">
-
-	<!-- Open Graph -->
-	<meta property="og:title" content=".venv en VS Code" />
-	<meta property="og:description" content="Consideraciones al trabajar en entornos virtuales con WSL en VS Code 🐧" />
-	<meta property="og:image" content="https://jlbaur.lat/assets/img/baur.ico" />
-	<meta property="og:url" content="https://jlbaur.lat" />
-	<meta property="og:type" content="article" />
-	<meta property="og:site_name" content="jlbar.lat" />
-
-	<!--End - Etiquetas para Post con terceros ----------------------------------------------------------------------------->
-
-	<!-- Bootstrap core CSS -->
-	<link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
-	<!-- Fonts -->
-	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
-	<!-- Custom styles for this template -->
-	<link href="../../assets/css/mediumish.css" rel="stylesheet">
-
-</head>
-
-	<body>
-
-
-	<!-- Begin Nav
-	================================================== -->
-	<div id="menu-container_02"></div>
-	<!-- End Nav
-	================================================== -->
-
-	<!-- Begin Article
-	================================================== -->
-	<div class="container">
-		<div class="row">
-
-			<div class="col-md-2 col-xs-12">
-				<!-- In data-post-url you put the URL of the current post -->
-				<div id="share-container" data-post-url="https://jlbaur.lat/content/posts/Visual_Studio_Entornos_Virtuales_con_WSL.html"></div>
-			  </div>
-
-			<!-- Begin Post -->
-			<div class="col-md-8 col-md-offset-2 col-xs-12">
-				<div class="mainheading">
-
-					
-					<!-- End Top Menta -->
-
-					<h1 class="posttitle">Consideraciones al trabajar en entornos virtuales con WSL en VS Code 🐧</h1> <br>
-
-					<!-- Begin Top Meta -->
-					<div class="row post-top-meta">
-						<div class="col-md-2">
-							<a href="../../author.html"> <img class="author-thumb" src="https://i.postimg.cc/D0cT4WtX/Profile-long7.jpg" alt="Baur" target="_blank" rel="noopener noreferrer" ></a>
-						</div>
-						<div class="col-md-10">
-							<a class="link-dark" href="../../author.html">Baur  </a> <a href="https://www.instagram.com/jbaur55/" class="btn follow" target="_blank" rel="noopener noreferrer" >Follow</a>
-							<br>
-							<span class="author-description">Me gusta escribir; cuentos, historias y código.</span>
-							<br>
-							<span class="author-description">16 de marzo de 2025</span>
-							
-						</div>
-					</div>
-
-				</div>
-
-				<!-- Begin Featured Image -->
-				<img class="featured-image img-fluid" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiNM9q4Wh6_yIzbIiDNIZieulW3QZ0smYhLKoCG7-entWBB1a39XsyQhL-jkBjRsCGYeViCks5H8S5zK2iLPlMZlVPs4RDsdck_Bc7mpqZf3CRSaYSAk68LZ8D3gH2NEnPEEehHBvH_619nD_tQ-WdAFz2zMvcHsi1pfCCT7AUPc7ZFyQylBXbVu0lN/s2000/Mesa%20de%20trabajo%201.png" alt="Salud_Mental">
-				<!-- End Featured Image -->
-
-				<!-- Begin Post Content -->
-				<div class="article-post">
-					<p>
-						A menudo creemos que todo está bien cuando en realidad no es así. Nuestras actitudes habituales pueden ser mecanismos de defensa desarrollados de manera subconsciente para contextos diferentes, perjudicándonos sin que nos demos cuenta.
-					</p>
-					<p>
-						El "estoy bien y nada me afecta" es la calma que precede a la tormenta emocional, y no se trata de negar la realidad, sino de creer genuinamente que todo está bien. Tener dudas sobre nuestros sentimientos demuestra una mayor autoescucha, y reconocer que no siempre estaremos bien refleja un mayor control sobre nuestro estado emocional.
-					</p>
-					<p>
-						Gran parte de nuestro estilo de vida, hábitos y acciones son el resultado de conductas desarrolladas a lo largo del tiempo por practicidad, comodidad o para proteger nuestro bienestar en un determinado contexto. Sin embargo, es posible caer en hábitos perjudiciales a largo plazo sin siquiera notarlo.
-					</p>
-					
-					<p>
-						En cuanto a la gestión de las emociones, ¿es la forma en que las enfrentamos, desarrollamos y sentimos la mejor? ¿En qué etapa de nuestra vida aprendimos a gestionarlas? ¿Por qué las gestionamos de esa manera?
-					</p>
-
-					<p>
-						Imaginemos a un joven que estudia lo que desea, tiene pareja, apoyo familiar y un entorno de crecimiento saludable, pero experimenta un profundo grado de insatisfacción debido a herramientas de gestión emocional que le sirvieron en su adolescencia pero que ya no son útiles en su juventud.
-					</p>
-
-					<p>
-						O una madre amorosa, preocupada por la seguridad y el bienestar de su familia, rodeada de amigos y un entorno familiar saludable, pero que se siente completamente triste. Sin darse cuenta, no sabe expresar sus necesidades afectivas a las personas que ama debido a un mecanismo heredado de su infancia, lo cual está afectando su autoestima.
-					</p>
-
-					<p>
-						También encontramos a un joven adulto que es trabajador, independiente, tiene hábitos saludables y una variedad de amistades, pero experimenta una gran frustración emocional. No logra superar las relaciones pasadas y niega sus propias emociones por miedo al rechazo, debido a heridas en su subconsciente desde la infancia.
-					</p>
-
-					<p>	
-						La lista podría continuar. Me preguntaba a mí mismo, ¿por qué me siento vacío cuando no hay razón para ello? Creer que no tenemos ningún trauma pasado es el primer indicio de que hay aspectos para trabajar.
-					</p>
-
-					<p>
-						Hay acciones que no siempre se reflejan en nosotros mismos, sino en patrones que se manifiestan en nuestras relaciones con otras personas. ¿Por qué siempre me sucede lo mismo con las personas que conozco en ciertos ámbitos?
-					</p>
-
-					<p> 
-						El o la psicólogo(a) es el guía, gestor(a) y mediador(a) entre nuestro pasado personal y nuestro presente. En muchas ocasiones, los problemas que enfrentamos son solo la punta del iceberg que guardamos en nuestro subconsciente, y gran parte de ese "hielo" afecta otros aspectos que no siempre percibimos conscientemente.
-					</p>
-
-					<p> 
-						Aceptar que la salud emocional es fundamental nos brinda la oportunidad de crear entornos familiares, amistades, de trabajo y sociales más sanos. Las relaciones humanas sanas están dadas por personas emocionalmente sanas. 
-					</p>
-
-					<p>
-						¿Por qué sientes lo que sientes? ¿Por qué no buscar asesoría para evaluar si todo está bien? Si todo está bien, no hay ningún problema, pero si no es el caso, es mejor ¿no? Una cita a tiempo puede ayudarnos a evitar, aliviar o reducir un prejuicio a largo plazo. 
-					</p>
-
-					<p>
-						Cuida tu salud emocional como cuidas tu salud física, como cuidas tu manejo económico o tu desarrollo laboral. 
-					</p>
-
-				</div>
-				<!-- End Post Content -->
-
-				<!-- Begin Tags -->
-				<div class="after-post-tags">
-					<ul class="tags">
-						<li><a href="#">Salud emocional</a></li>
-						<li><a href="#">Psicología</a></li>
-						<li><a href="#">Bienestar</a></li>
-					</ul>
-				</div>
-				<!-- End Tags -->
-
-			</div>
-			<!-- End Post -->
-
-		</div>
-	</div>
-	<!-- End Article
-	================================================== -->
-
-	<div class="hideshare"></div>
-
-	<!-- Begin Related
-	================================================== -->
-	<div class="graybg">
-		<div class="container">
-			
-
-			<!-- Begin Footer
-			================================================== -->
-		
-			<div id="footer-container-02"></div>
-
-			<!-- End Footer
-			================================================== -->
-
-		</div>
-
-	</div>
-	<!-- End Related Posts
-	================================================== -->
-
-
-
-
-	<!-- Bootstrap core JavaScript
-	================================================== -->
-	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="../../assets/js/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-	<script src="../../assets/js/bootstrap.min.js"></script>
-	<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-	<script src="../../assets/js/mediumish.js"></script>
-	<script src="../../assets/js/menu.js"></script>
-	<script src="../../assets/js/footer_02.js"></script>
-	<script src="../../assets/js/share.js"></script>
-
-	</body>
+		print("Successfully connected to the database.")
 	
+		# Create a cursor object to execute queries.
+		cursor = db.cursor()
+	
+		# Execute an SQL statement to show all available databases.
+		cursor.execute("SHOW DATABASES;")
+	
+		# Fetch all the rows returned by the query.
+		databases = cursor.fetchall()
+	
+		print("Available databases:")
+		# Loop through each row (database name) returned
+		for (db_name,) in databases:
+			print(f"  - {db_name}")
+	
+	# Catch any MySQLdb errors (e.g., connection issues, authentication problems, etc.).
+	except MySQLdb.Error as e:
+		error_code, error_msg = e.args
+		print(f"Error connecting: Code {error_code}, Message: {error_msg}")
+</code></pre>
+          </article>
+          <!-- End Post Content -->
+
+          <!-- Begin Tags -->
+          <div class="after-post-tags">
+            <ul class="tags">
+              <li><a href="#">Python</a></li>
+              <li><a href="#">Django</a></li>
+              <li><a href="#">Linux</a></li>
+              <li><a href="#">Bases de Datos</a></li>
+            </ul>
+          </div>
+          <!-- End Tags -->
+
+          <!-- Begin Top Meta -->
+          <div class="row post-top-meta">
+            <div class="col-md-2">
+              <a href="../../author.html">
+                <img class="author-thumb" src="https://i.postimg.cc/D0cT4WtX/Profile-long7.jpg" alt="Baur" target="_blank" rel="noopener noreferrer">
+              </a>
+            </div>
+            <div class="col-md-10">
+              <a class="link-dark" href="../../author.html">Baur</a>
+              <a href="https://www.instagram.com/jbaur55/" class="btn follow" target="_blank" rel="noopener noreferrer">Follow</a>
+              <br>
+              <span class="author-description">Me gusta escribir; cuentos, historias y código.</span>
+              <br>
+              <span class="author-description">16 de marzo de 2025</span>
+            </div>
+          </div>
+        </div>
+        <!-- End Post -->
+      </div>
+    </div>
+    <!-- End Article ================================================== -->
+
+    <div class="hideshare"></div>
+
+    <!-- Begin Related ================================================== -->
+    <div class="graybg">
+      <div class="container">
+        <!-- Begin Footer ================================================== -->
+        <div id="footer-container-02"></div>
+        <!-- End Footer ================================================== -->
+      </div>
+    </div>
+    <!-- End Related Posts ================================================== -->
+
+    <!-- Bootstrap core JavaScript ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../assets/js/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="../../assets/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="../../assets/js/mediumish.js"></script>
+    <script src="../../assets/js/menu.js"></script>
+    <script src="../../assets/js/footer_02.js"></script>
+    <script src="../../assets/js/share.js"></script>
+    <script src="../../assets/js/copy-code.js"></script>
+  </body>
 </html>

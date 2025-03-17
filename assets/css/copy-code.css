@@ -1,0 +1,40 @@
+/* Contenedor que envuelve el <pre> y el botón */
+.code-container {
+    position: relative;
+    margin: 1em 0;
+  }
+  
+  /* Botón de copiar */
+  .btn-copy {
+    position: absolute;
+    top: 0.5em;
+    right: 0.5em;
+    background: #007bff; /* color base */
+    border: none;
+    color: #fff;
+    padding: 0.4em 0.8em;
+    cursor: pointer;
+    font-size: 0.9em;
+    border-radius: 4px;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+  }
+  
+  .btn-copy:hover {
+    opacity: 1;
+  }
+  
+  /* Ajustes estéticos para el <pre> y <code> */
+  pre {
+    background-color: #ededed;
+    padding: 1em;
+    overflow-x: auto;
+    border-radius: 4px;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, "Courier New", monospace;
+    font-size: 0.80em;
+    color: #7b4704;
+  }
+  

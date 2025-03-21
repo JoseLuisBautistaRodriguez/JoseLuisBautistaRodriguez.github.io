@@ -1,7 +1,5 @@
-#images
-assets/img/demopic/
-*page_base_old.html
-*page_base.html
-
-# Documents and files
-
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor

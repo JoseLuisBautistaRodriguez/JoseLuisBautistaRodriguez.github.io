@@ -66,6 +66,7 @@
     <!-- Custom styles for this template -->
     <link href="../../assets/css/mediumish.css" rel="stylesheet">
     <link rel="stylesheet" href="../../assets/css/copy-code.css">
+	<link href="../../assets/css/carrusel.css" rel="stylesheet">
     
 </head>
 	<body>
@@ -95,15 +96,31 @@
 
 					<!-- Begin Post Content -->
 					<div class="article-post">
-						<p>Este proyecto tiene como objetivo desarrollar un bot basado en WhatsApp utilizando Django, Twilio y MySQL, orientado a la enseñanza de idiomas y ejercicios interactivos. El proyecto parte del profesor de la ENALT José L. Costa Anguiano, el estudiante de mecatrónica de la Facultad de Ingeniería Luis Castro y su servidor, todos pertenecientes a la UNAM.</p>
+						<p>En éste proyecto se ha desarrollado un bot basado en WhatsApp utilizando Django, Twilio y MySQL, orientado a la enseñanza de idiomas y ejercicios interactivos. El proyecto parte del profesor de la ENALT José L. Costa Anguiano, el estudiante de mecatrónica de la Facultad de Ingeniería Luis Castro y su servidor, todos pertenecientes a la UNAM.</p>
 						<p>El flujo de trabajo se compone de varias fases, comenzando con la preparación del entorno local de desarrollo.</p>
-						<p>En la siguiente fase, se integra Twilio para gestionar las interacciones de WhatsApp. Posteriormente, se desarrollan las funcionalidades básicas, como la configuración de rutas en Django para recibir mensajes desde WhatsApp y responder a los usuarios.</p>
+						<p>En la siguiente fase fue integrar Twilio para gestionar las interacciones de WhatsApp. Posteriormente, se desarrollaron las funcionalidades básicas como la configuración de rutas en Django para recibir mensajes desde WhatsApp y responder a los usuarios.</p>
 						<p>El bot interactúa solicitando información como el nombre del usuario, el idioma y el nivel de ejercicios. Se almacena esta información en la base de datos y se envían diferentes tipos de ejercicios, como gramática, vocabulario o comprensión lectora, verificando las respuestas automáticamente.</p>
-						<p>El proyecto actualmente está en pruebas locales usando Ngrok para simular la interacción de usuarios con el bot antes de escalar a un servidor de producción. Por ahora se contempla una prueba con 30 personas en noviembre.</p>
+						<p>El proyecto se encuentra en pruebas demo y se busca activamente su empleo como producto de la membresía <a href="https://clx.com.mx/mc2/membresia/">LEX IT</a>. Se ha encotrado su adopción con diferentes entidades de enseñanza privada.</p>
 						<!-- Begin Featured Image -->
-						<img class="featured-image img-fluid" src="https://i.postimg.cc/J0bRwrF7/Chat-bot.png" alt="Chat_BotMC2">
+
+						<div class="carrusel-container">
+							<button class="prev-btn">⟨</button>
+							
+							<div class="carrusel">
+
+								<div class="post-card post">
+									<img class="featured-image img-fluid" src="https://i.postimg.cc/J0bRwrF7/Chat-bot.png" alt="Chat_BotMC2">
+								</div>
+		
+							</div>
+							
+							<button class="next-btn">⟩</button>
+						</div>
+
+						
 						<!-- End Featured Image -->
-						<p>Para garantizar la escalabilidad y seguridad, se utilizarán servidores EC2 y almacenamiento en S3 de Amazon, además de mantener la integridad de la base de datos. El monitoreo de la infraestructura y la retroalimentación de los usuarios serán clave para mejorar la experiencia y asegurar que el bot soporte un gran número de interacciones.</p>
+						<p>Para garantizar la escalabilidad y seguridad, se emplean servidores EC2 y almacenamiento en S3 de Amazon, además de mantener la integridad de la base de datos. El monitoreo de la infraestructura y la retroalimentación de los usuarios serán clave para mejorar la experiencia y asegurar que el bot soporte un gran número de interacciones.</p>
+						<p>Prueba su uso en el siguiente <a href="https://wa.me/5215579950140">enlace.</a></p>
 					</div>
 					<!-- End Post Content -->
 
@@ -159,6 +176,7 @@
 		<script src="../../assets/js/footer_02.js"></script>
 		<script src="../../assets/js/share.js"></script>
 		<script src="../../assets/js/copy-code.js"></script>
+		<script src="../../assets/js/carrusel.js"></script>
 
 	</body>
 </html>

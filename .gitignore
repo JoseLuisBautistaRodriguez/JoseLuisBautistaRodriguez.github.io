@@ -2,6 +2,9 @@
 assets/img/demopic/
 *page_base_old.html
 *page_base.html
+_site/
+.jekyll-cache/
+vendor/
 
 # Documents and files
 

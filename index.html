@@ -265,13 +265,13 @@
 						<!-- Proyecto 02 : Eigen Core-->
 						<div class="post-card post">
 						
-							<a href="content/proyects/EigenCore.html">
+							<a href="../../content/proyects/EigenCore.html">
 								<img class="img-fluid" src="https://i.postimg.cc/tCQr53bf/Eigen-Core-Redes.jpg" alt="Eigen Core Contenido">
 							</a>
 
 							<div class="card-block">
 								
-								<h3 class="card-title"><a href="content/proyects/EigenCore.html">Eigen Core</a></h3>
+								<h3 class="card-title"><a href="../../content/proyects/EigenCore.html">Eigen Core</a></h3>
 
 								<h6 class="card-text">Una Iniciativa Mexicana que busca integrar <br> la IA desde la Academia a la Industria.</h6>
 								<br>
@@ -288,7 +288,10 @@
 										<!-- Begin Tags -->
 										<div class="after-post-tags">
 											<ul class="tags">
-												<li><a href="content/tags/">WordPress</a></li>
+												
+												<li>
+													<button onclick="redirigir('WordPress')">WordPress</button>
+												</li>
 												<li><a href="#">LLm</a></li>
 												<li><a href="#">Marketing</a></li>
 												<li><a href="#">SEO</a></li>
@@ -330,7 +333,8 @@
 											<ul class="tags">
 												<!--li><a href="#">Git</a></li-->
 												<li><a href="#">GitHub</a></li>
-												<li><a href="#">Django</a></li>
+												
+												<li><button onclick="redirigir('Django')">Django</button></li>
 												<!--li><a href="#">Python</a></li-->
 												<li><a href="#">MySQL</a></li>
 												<li><a href="#">WhatsApp</a></li>
@@ -372,7 +376,7 @@
 											<div class="after-post-tags">
 												<ul class="tags">
 													<li><a href="#">ftp</a></li>
-													<li><a href="#">php</a></li>
+													<li><button onclick="redirigir('php')">php</button></li>
 													<li><a href="#">css</a></li>
 													<li><a href="#">JavaScript</a></li>
 													<li><a href="#">SEO</a></li>
@@ -517,6 +521,11 @@
 	<script src="assets/js/menu.js"></script>
 	<script src="assets/js/footer.js"></script>
 	<script src="assets/js/carrusel.js"></script>
+	<script>
+        function redirigir(tema) {
+            window.location.href = `content/tags/index.html?tema=${tema}`;
+        }
+    </script>
 
 	</body>
 	

@@ -1,7 +1,11 @@
 document.addEventListener("DOMContentLoaded", function() {
+
     const tgDjangoContainer = document.getElementById('django-container');
     const tgphpContainer = document.getElementById('php-container');
     const tgWordPressContainer = document.getElementById('WordPress-container');
+    const tgLLmContainer = document.getElementById('LLm-container');
+    const tgMarketingContainer = document.getElementById('Marketing-container');
+    const tgSEOContainer = document.getElementById('SEO-container');
  
     // Fetch para cargar el archivo django.html
     fetch('../../content/tags/django.html')
@@ -49,6 +53,54 @@ document.addEventListener("DOMContentLoaded", function() {
       .catch(error => {
         console.error(error);
         tgWordPressContainer.innerHTML = "<p>Error al cargar el WordPress tags.</p>";
+    }); 
+
+    // Fetch para cargar el archivo llm.html
+    fetch('../../content/tags/llm.html')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Error al cargar LLm tag: ' + response.statusText);
+        }
+        return response.text();
+      })
+      .then(data => {
+        tgLLmContainer.innerHTML = data;
+      })
+      .catch(error => {
+        console.error(error);
+        tgLLmContainer.innerHTML = "<p>Error al cargar el LLm tags.</p>";
+    }); 
+
+    // Fetch para cargar el archivo marketing.html
+    fetch('../../content/tags/marketing.html')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Error al cargar Marketing tag: ' + response.statusText);
+        }
+        return response.text();
+      })
+      .then(data => {
+        tgMarketingContainer.innerHTML = data;
+      })
+      .catch(error => {
+        console.error(error);
+        tgMarketingContainer.innerHTML = "<p>Error al cargar el Marketin tags.</p>";
+    }); 
+
+    // Fetch para cargar el archivo seo.html
+    fetch('../../content/tags/seo.html')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Error al cargar SEO tag: ' + response.statusText);
+        }
+        return response.text();
+      })
+      .then(data => {
+        tgSEOContainer.innerHTML = data;
+      })
+      .catch(error => {
+        console.error(error);
+        tgSEOContainer.innerHTML = "<p>Error al cargar el SEO tags.</p>";
     }); 
 
   });

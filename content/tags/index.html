@@ -83,7 +83,7 @@
 		<div class="row">
 
 			<div class="col-md-2 col-xs-12">
-				<div id="share-container"></div>
+				<div id="share-container" data-post-url="https://jlbaur.lat/content/tags/index.html"></div>
 			</div>
 
 			<!-- Begin Post -->
@@ -123,6 +123,18 @@
 
 				<div id="php" class="tema">
 					<div id="php-container"></div>
+				</div>
+
+				<div id="LLm" class="tema">
+					<div id="LLm-container"></div>
+				</div>
+
+				<div id="Marketing" class="tema">
+					<div id="Marketing-container"></div>
+				</div>
+
+				<div id="SEO" class="tema">
+					<div id="SEO-container"></div>
 				</div>
 
 				<br>
@@ -189,6 +201,11 @@
             }
         }
     </script>
+	<script>
+		function redirigir(tema) {
+			window.location.href = `../../content/tags/index.html?tema=${tema}`;
+		}
+	</script>
 
 	</body>
 </html>

@@ -1,0 +1,25 @@
+.listfeaturedtag {
+    max-height: 600px; /* Ajusta la altura según tu diseño */
+    overflow-y: auto;
+    scrollbar-width: thin; /* Estiliza la barra de desplazamiento en Firefox */
+    scrollbar-color: #888 #f1f1f1;
+  }
+  
+  /* Para navegadores basados en WebKit */
+  .listfeaturedtag::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .listfeaturedtag::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  .listfeaturedtag::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+  }
+  
+  .listfeaturedtag::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  

@@ -67,6 +67,7 @@
     <link href="assets/css/mediumish.css" rel="stylesheet">
     <link href="assets/css/carrusel.css" rel="stylesheet">
 	<link rel="stylesheet" href="assets/css/copy-code.css">
+	<link rel="stylesheet" href="assets/css/nav-var.css">
 	
   </head>
 	<body>
@@ -103,6 +104,34 @@
 				<div class="card">
 					<div class="row">
 					  <div class="col-md-5 wrapthumbnail">
+						<a href="content/posts/Procesador_al_100.html">
+						  <div class="thumbnail" style="background-image:url(https://i.postimg.cc/cJQvSQMk/cpu-al-100.jpg);">
+						  </div>
+						</a>
+					  </div>
+					  <div class="col-md-7">
+						<div class="card-block">
+						  <h2 class="card-title"><a href="content/posts/Procesador_al_100.html">Procesador ejecutándose al 100%, todo el tiempo ¡Solución!</a></h2>
+						  <h4 class="card-text">Si tu procesador está constantemente al 100% en Windows 11, es posible que se deba a procesos en segundo plano, configuraciones incorrectas de energía o problemas con controladores. Este artículo explora las causas más comunes, como VmmemWSL, actualizaciones del sistema y software mal optimizado, y ofrece soluciones efectivas, desde el uso de comandos de diagnóstico hasta ajustes en la configuración de energía para restaurar el rendimiento normal del equipo.</h4>
+						  <div class="metafooter">
+							<div class="wrapfooter">
+							  <span class="meta-footer-thumb">
+								<span class="post-date">26 de marzo de 2025</span>
+								<span class="dot"></span>
+								<span class="post-read">5 min lectura</span>
+							  </span>
+							</div>
+						  </div>
+						</div>
+					  </div>
+					</div>
+				</div>
+				<!-- end post -->
+
+				<!-- begin post -->
+				<div class="card">
+					<div class="row">
+					  <div class="col-md-5 wrapthumbnail">
 						<a href="content/posts/Visual_Studio_Entornos_Virtuales_con_WSL.html">
 						  <div class="thumbnail" style="background-image:url(https://i.postimg.cc/pLkXx9q1/Diagrama-01-WSL.jpg);">
 						  </div>
@@ -124,8 +153,8 @@
 						</div>
 					  </div>
 					</div>
-				  </div>
-				  <!-- end post -->
+				</div>
+				<!-- end post -->
 
 				<!-- begin post -->
 				<div class="card">
@@ -155,6 +184,9 @@
 				<!-- end post -->
 
 			</div>
+
+			
+
 		</section>
 		<!-- End Featured
 		================================================== -->
@@ -292,9 +324,19 @@
 												<li>
 													<button onclick="redirigir('WordPress')">WordPress</button>
 												</li>
-												<li><a href="#">LLm</a></li>
-												<li><a href="#">Marketing</a></li>
-												<li><a href="#">SEO</a></li>
+
+												<li>
+													<button onclick="redirigir('LLm')">LLm</button>
+												</li>
+
+												<li>
+													<button onclick="redirigir('Marketing')">Marketing</button>
+												</li>
+												
+												<li>
+													<button onclick="redirigir('SEO')">SEO</button>
+												</li>
+
 											</ul>
 										</div>
 										<!-- End Tags -->
@@ -379,7 +421,9 @@
 													<li><button onclick="redirigir('php')">php</button></li>
 													<li><a href="#">css</a></li>
 													<li><a href="#">JavaScript</a></li>
-													<li><a href="#">SEO</a></li>
+													<li>
+														<li><button onclick="redirigir('SEO')">SEO</button></li>
+													</li>
 												</ul>
 											</div>
 											<!-- End Tags -->
@@ -521,6 +565,7 @@
 	<script src="assets/js/menu.js"></script>
 	<script src="assets/js/footer.js"></script>
 	<script src="assets/js/carrusel.js"></script>
+	<script src="assets/js/nav-var.js"></script>
 	<script>
         function redirigir(tema) {
             window.location.href = `content/tags/index.html?tema=${tema}`;

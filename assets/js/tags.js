@@ -6,6 +6,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const tgLLmContainer = document.getElementById('LLm-container');
     const tgMarketingContainer = document.getElementById('Marketing-container');
     const tgSEOContainer = document.getElementById('SEO-container');
+    const tgGitHubContainer = document.getElementById('GitHub-container');
+    const tgMySQLContainer = document.getElementById('MySQL-container');
+    const tgTwilioContainer = document.getElementById('Twilio-container');
+    
  
     // Fetch para cargar el archivo django.html
     fetch('../../content/tags/django.html')
@@ -101,7 +105,58 @@ document.addEventListener("DOMContentLoaded", function() {
       .catch(error => {
         console.error(error);
         tgSEOContainer.innerHTML = "<p>Error al cargar el SEO tags.</p>";
-    }); 
+    });
 
-  });
-  
+    // Fetch para cargar el archivo github.html
+    fetch('../../content/tags/github.html')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Error al cargar GitHub tag: ' + response.statusText);
+        }
+        return response.text();
+      })
+      .then(data => {
+        tgGitHubContainer.innerHTML = data;
+      })
+      .catch(error => {
+        console.error(error);
+        tgGitHubContainer.innerHTML = "<p>Error al cargar el GitHub tags.</p>";
+    });
+
+    // Fetch para cargar el archivo mysql.html
+    fetch('../../content/tags/mysql.html')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Error al cargar MySQL tag: ' + response.statusText);
+        }
+        return response.text();
+      })
+      .then(data => {
+        tgMySQLContainer.innerHTML = data;
+      })
+      .catch(error => {
+        console.error(error);
+        tgMySQLContainer.innerHTML = "<p>Error al cargar el MySQL tags.</p>";
+    });
+
+    // Fetch para cargar el archivo twilio.html
+    fetch('../../content/tags/twilio.html')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Error al cargar Twilio tag: ' + response.statusText);
+        }
+        return response.text();
+      })
+      .then(data => {
+        tgTwilioContainer.innerHTML = data;
+      })
+      .catch(error => {
+        console.error(error);
+        tgTwilioContainer.innerHTML = "<p>Error al cargar el Twilio tags.</p>";
+    });
+
+
+
+
+  }
+);

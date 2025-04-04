@@ -2,7 +2,7 @@
 [jlbaur.lat](https://jlbaur.lat/)
 
 ## Contenido
-
+En la página se muestra el portafolio de trabajo de José Luis Bautista Rodríguez, a modo de glosario, por áreas de interes del autor.
 ### Secciones  
 
 ### Articulos

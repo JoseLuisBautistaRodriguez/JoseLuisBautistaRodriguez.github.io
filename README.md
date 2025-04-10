@@ -7,9 +7,11 @@ En la página se muestra el portafolio de trabajo de José Luis Bautista Rodríg
 
 ### Articulos
 
-### Soporte
+### Tags
+El etiquetado de contenido parte de una serie de vinculos relacionados a partir de un indice referenciado con los tópicos desarrollados por parte del autor. 
 
-Parte del funcionamiento para pruebas locales corre en un localhost a partir del comando en python de.
+### Soporte
+Parte del funcionamiento para pruebas locales corre en un localhost a partir del comando en python de:
 
 ```python
 python3 -m http.server

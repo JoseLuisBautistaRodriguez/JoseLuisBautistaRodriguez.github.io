@@ -21,4 +21,5 @@ También se puede realizar las pruebas de forma local con Node, estando en el en
 npm install -g http-server
 http-server -p 5500
 ```
-Y navegar a localhost:5500 y ya estaría ejecutandose la página. 
+
+Y navegar a localhost:5500 y ya estaría ejecutandose la página.

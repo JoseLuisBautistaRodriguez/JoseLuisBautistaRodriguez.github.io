@@ -1,5 +1,5 @@
 # joseluisbautistarodriguez.github.io 
-# [jlbaur.lat](https://jlbaur.lat/)
+
 [joseluisbaur.com](https://joseluisbaur.com/)
 
 ## Contenido

@@ -1,5 +1,6 @@
 # joseluisbautistarodriguez.github.io 
-[jlbaur.lat](https://jlbaur.lat/)
+# [jlbaur.lat](https://jlbaur.lat/)
+[joseluisbaur.com](https://joseluisbaur.com/)
 
 ## Contenido
 En la página se muestra el portafolio de trabajo de José Luis Bautista Rodríguez, a modo de glosario, por áreas de interes del autor.

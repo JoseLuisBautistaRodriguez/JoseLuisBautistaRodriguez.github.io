@@ -2,14 +2,16 @@
 [joseluisbaur.com](https://joseluisbaur.com/)
 
 ## Contenido
-
+En la página se muestra el portafolio de trabajo de José Luis Bautista Rodríguez, a modo de glosario, por áreas de interes del autor.
 ### Secciones  
 
 ### Articulos
 
-### Soporte
+### Tags
+El etiquetado de contenido parte de una serie de vinculos relacionados a partir de un indice referenciado con los tópicos desarrollados por parte del autor. 
 
-Parte del funcionamiento para pruebas locales corre en un localhost a partir del comando en python de.
+### Soporte
+Parte del funcionamiento para pruebas locales corre en un localhost a partir del comando en python de:
 
 ```python
 python3 -m http.server

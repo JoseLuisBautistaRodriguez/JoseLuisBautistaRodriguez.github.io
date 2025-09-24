@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<!-- Google tag (gtag.js) -->
+	<!--script async src="https://www.googletagmanager.com/gtag/js?id=G-VP7WXWRZFJ"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-VP7WXWRZFJ');
+	</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Modular Menu Example</title-->
+
+  <!--Etiquetas para Post con terceros-------------------------------------------------------------------------------------->
+	
+	<meta charset="utf-8">
+
+	<!-- Open Graph -->
+	<meta property="og:title" content="JLBaur" />
+	<meta property="og:description" content="Cree, crea y crece 🐘" />
+	<meta property="og:image" content="https://joseluisbaur.com/assets/img/baur.ico" />
+	<meta property="og:url" content="https://joseluisbaur.com" />
+	<meta property="og:type" content="article" />
+	<meta property="og:site_name" content="jlbar.lat" />
+
+	<!--End - Etiquetas para Post con terceros ----------------------------------------------------------------------------->
+
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/mediumish.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Contenedor donde se cargará el menú -->
+  <div id="menu-container"></div>
+
+  <div class="col-md-2 col-xs-12">
+    <!-- In data-post-url you put the URL of the current post -->
+    <div id="share-container" data-post-url="https://joseluisbaur.com/content/posts/reprimir_emociones.html"></div>
+  </div>
+
+  <h1>Página de ejemplo</h1>
+  <p>Contenido de la página principal.</p>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const menuContainer = document.getElementById('menu-container');
+      
+      // Fetch para cargar el archivo menu.html
+      fetch('assets/page/menu.html')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Error al cargar el menú: ' + response.statusText);
+          }
+          return response.text();
+        })
+        .then(data => {
+          menuContainer.innerHTML = data;
+        })
+        .catch(error => {
+          console.error(error);
+          menuContainer.innerHTML = "<p>Error al cargar el menú.</p>";
+        });
+    });
+    </script>
+
+</body>
+</html>

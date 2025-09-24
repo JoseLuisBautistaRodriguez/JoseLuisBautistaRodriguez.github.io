@@ -1,5 +1,4 @@
 # joseluisbautistarodriguez.github.io 
-
 [joseluisbaur.com](https://joseluisbaur.com/)
 
 ## Contenido

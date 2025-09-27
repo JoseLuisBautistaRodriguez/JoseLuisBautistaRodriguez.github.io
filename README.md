@@ -18,9 +18,9 @@ python3 -m http.server
 ```
 
 También se puede realizar las pruebas de forma local con Node, estando en el entorno de trabajo e instalando y después ejecutando: 
-
+Tener precaución con npm
 ```bach
-npm install -g http-server
+npm install -g http-server  
 http-server -p 5500
 ```
 
